@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Přehledný úvod do Formule 1: jak probíhá závodní víkend, co znamenají vlajky a kde se dozvědět víc.">
+  <title>Formule 1 – úvod do světa závodů</title>
+  <style>
+    :root {
+      --bg: #f5f6f8;
+      --ink: #1a1d23;
+      --muted: #5b6472;
+      --dark: #14171c;
+      --red: #e10600;
+      --card: #ffffff;
+      --line: #dfe2e7;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--bg);
+    }
+    a { color: var(--red); }
+    a:focus-visible { outline: 3px solid #ffb300; outline-offset: 2px; }
+
+    .site-nav {
+      position: sticky; top: 0; z-index: 10;
+      background: var(--dark);
+      border-bottom: 3px solid var(--red);
+    }
+    .site-nav ul {
+      list-style: none; margin: 0 auto; padding: 0 1.5rem;
+      max-width: 1000px; display: flex; gap: 1.8rem; align-items: center;
+    }
+    .site-nav li:first-child { margin-right: auto; font-weight: 800; font-size: 1.15rem; color: #fff; padding: .9rem 0; }
+    .site-nav a { color: #c9ced6; text-decoration: none; font-weight: 600; }
+    .site-nav a:hover { color: #fff; }
+
+    .hero { background: var(--dark); color: #fff; padding: 4.5rem 1.5rem 5rem; }
+    .hero-inner { max-width: 1000px; margin: 0 auto; }
+    .hero h1 { margin: 0 0 1rem; font-size: clamp(2.6rem, 7vw, 4.4rem); line-height: 1.05; letter-spacing: -.02em; }
+    .hero p { margin: 0; max-width: 34rem; color: #b8bfca; font-size: 1.15rem; }
+
+    main { max-width: 1000px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+    section { padding: 3.2rem 0 0; }
+    h2 { margin: 0 0 1rem; font-size: 1.9rem; padding-left: .8rem; border-left: 5px solid var(--red); }
+    h3 { margin: 2rem 0 .6rem; font-size: 1.3rem; }
+    p { max-width: 42rem; }
+
+    figure { margin: 1.8rem 0; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+    figure img { display: block; width: 100%; height: auto; }
+    figcaption { padding: .7rem 1rem; color: var(--muted); font-size: .92rem; }
+
+    ol.steps { padding-left: 1.3rem; max-width: 28rem; }
+    ol.steps li { margin-bottom: .5rem; padding-left: .3rem; }
+
+    table { width: 100%; max-width: 42rem; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; margin-top: 1rem; }
+    th, td { text-align: left; padding: .7rem 1rem; border-bottom: 1px solid var(--line); }
+    th { width: 40%; background: #eef0f3; font-weight: 700; }
+    tr:last-child th, tr:last-child td { border-bottom: 0; }
+
+    ul.flags { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1rem; }
+    ul.flags li { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1rem 1rem 1.2rem; border-left: 8px solid var(--line); }
+    ul.flags strong { display: block; }
+    .f-green { border-left-color: #1aa260 !important; }
+    .f-yellow { border-left-color: #f2c200 !important; }
+    .f-red { border-left-color: #e10600 !important; }
+    .f-blue { border-left-color: #1f6fe0 !important; }
+    .f-check { border-left-color: #1a1d23 !important; }
+
+    ul.links { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: .8rem; max-width: 42rem; }
+    ul.links li { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .9rem 1.1rem; }
+    ul.links a { font-weight: 700; text-decoration: none; }
+    ul.links a:hover { text-decoration: underline; }
+    ul.links span { display: block; color: var(--muted); font-size: .92rem; }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+    footer { background: var(--dark); color: #aab1bd; text-align: center; padding: 1.6rem 1rem; font-size: .92rem; }
+    footer p { margin: 0 auto; }
+
+    @media (max-width: 600px) {
+      .site-nav ul { gap: 1rem; flex-wrap: wrap; padding-bottom: .6rem; }
+      .site-nav li:first-child { width: 100%; padding-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Hlavní navigace">
+    <ul>
+      <li>Formule 1</li>
+      <li><a href="#o-f1">O Formuli 1</a></li>
+      <li><a href="#verstappen">Verstappen</a></li>
+      <li><a href="#vlajky">Vlajky</a></li>
+      <li><a href="#odkazy">Odkazy</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Formule 1</h1>
+      <p>Stručný a přehledný úvod do nejvyšší závodní série světa: jak probíhá závodní víkend a co znamenají vlajky na trati.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="o-f1">
+      <h2>O Formuli 1</h2>
+      <p>Formule 1 je mistrovství světa jednomístných závodních vozů. Jezdí se od roku 1950. Jednotlivé závody se nazývají Velké ceny a konají se na okruzích po celém světě. Body za umístění se sčítají do pořadí jezdců a pořadí týmů.</p>
+
+      <figure>
+        <img src="formulejpg.webp" alt="Formule" width="800" height="320">
+        <figcaption>Ilustrace z vozy formule 1.</figcaption>
+      </figure>
+
+      <h3>Z čeho se skládá závodní víkend</h3>
+      <ol class="steps">
+        <li>Volné tréninky – týmy ladí nastavení vozu.</li>
+        <li>Kvalifikace – určuje startovní pořadí.</li>
+        <li>Závod – rozhoduje o bodech.</li>
+      </ol>
+    </section>
+
+    <section id="verstappen">
+      <h2>Max Verstappen a jeho vůz</h2>
+      <p>Max Verstappen je nizozemský jezdec, který jezdí za tým Red Bull Racing. V roce 2015 debutoval ve Formuli 1 ve stáji Toro Rosso jako nejmladší jezdec v historii série. Je čtyřnásobným mistrem světa (2021–2024).</p>
+
+      <!-- Pro vlastní fotku nahraďte src názvem souboru, např. src="verstappen.jpg" -->
+      <figure>
+        <img src="verstappen.jpg" alt="Formule Redbullu" width="800" height="320">
+        <figcaption>Monopost Red Bull Racing ve Formuli 1.</figcaption>
+      </figure>
+      <p>
+  <a href="https://youtu.be/MTe12fH2xtQ?si=acHZj0k4bflxjHK2" target="_blank" rel="noopener">
+    ▶ Předjetí Lewise Hamiltona v roce 2021 o titul mistra světa
+  </a>
+</p>
+
+<p>
+  <a href="https://youtu.be/raos5cz4Fgc?si=ah_UkLrA6RG1jmig" target="_blank" rel="noopener">
+    ▶ Reakce Maxe Verstappena na první vítězství mistra světa 2021 v Abu Dhabi
+  </a>
+</p>
+
+<p>
+  <a href="https://youtu.be/jG2AciJ3zHY?si=hT7M0YlL1J3YtlV5" target="_blank" rel="noopener">
+    ▶ Písnička od Maxe Verstappena
+  </a>
+</p>
+
+      <h3>Základní údaje</h3>
+      <table>
+        <caption class="sr-only">Základní údaje o Maxi Verstappenovi</caption>
+        <tbody>
+          <tr><th scope="row">Jméno</th><td>Max Emilian Verstappen</td></tr>
+          <tr><th scope="row">Narození</th><td>30. září 1997, Hasselt (Belgie)</td></tr>
+          <tr><th scope="row">Národnost</th><td>nizozemská</td></tr>
+          <tr><th scope="row">Tým</th><td>Red Bull Racing</td></tr>
+          <tr><th scope="row">Debut ve F1</th><td>2015 (Velká cena Austrálie)</td></tr>
+          <tr><th scope="row">První vítězství</th><td>2016 (Velká cena Španělska)</td></tr>
+          <tr><th scope="row">Tituly mistra světa</th><td>4 (2021, 2022, 2023, 2024)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Z čeho se skládá vůz Formule 1</h3>
+      <ul>
+        <li>karbonové monokoky, tedy pevná kabina pro jezdce,</li>
+        <li>hybridní pohonná jednotka (spalovací motor a elektrická část),</li>
+        <li>přední a zadní křídlo, které vytváří přítlak,</li>
+        <li>pneumatiky s několika směsemi (měkká, střední, tvrdá).</li>
+      </ul>
+    </section>
+
+    <section id="vlajky">
+      <h2>Vlajky na trati</h2>
+      <p>Pořadatelé informují jezdce pomocí vlajek. Každá barva má jasný význam.</p>
+
+      <ul class="flags">
+        <li class="f-green"><strong>Zelená</strong> Trať je volná.</li>
+        <li class="f-yellow"><strong>Žlutá</strong> Nebezpečí na trati, zákaz předjíždění.</li>
+        <li class="f-red"><strong>Červená</strong> Závod je přerušen.</li>
+        <li class="f-blue"><strong>Modrá</strong> Pomalejší jezdec musí pustit rychlejšího.</li>
+        <li class="f-check"><strong>Šachovnicová</strong> Konec závodu.</li>
+      </ul>
+
+      <figure>
+        <img src="Monaco.png" alt="Schematický nákres závodního okruhu v Monaku" width="800" height="320">
+        <figcaption>Monako okruh se sektorami.</figcaption>
+      </figure>
+    </section>
+
+    <section id="odkazy">
+      <h2>Užitečné odkazy</h2>
+      <p>Kde se dozvíte víc:</p>
+      <ul class="links">
+        <li><a href="https://www.formula1.com/" target="_blank" rel="noopener">Oficiální web Formule 1</a><span>Výsledky, kalendář a zprávy.</span></li>
+        <li><a href="https://cs.wikipedia.org/wiki/Formule_1" target="_blank" rel="noopener">Formule 1 na české Wikipedii</a><span>Historie a pravidla česky.</span></li>
+        <li><a href="https://cs.wikipedia.org/wiki/Max_Verstappen" target="_blank" rel="noopener">Max Verstappen na české Wikipedii</a><span>Životopis a kariéra.</span></li>
+        <li><a href="https://www.fia.com/" target="_blank" rel="noopener">Mezinárodní automobilová federace (FIA)</a><span>Organizace, která určuje pravidla.</span></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Školní úkol – Základy HTML. Autor: Šimon Pavera.</p>
+  </footer>
+</body>
+</html>
